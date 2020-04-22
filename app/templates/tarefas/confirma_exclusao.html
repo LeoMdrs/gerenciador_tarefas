@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block conteudo  %}
+
+<h1>Tem certeza de que deseja remover a tarefa abaixo?</h1>
+
+<div class="card mb-3">
+    <div class="card-header">
+        {{ tarefa.get_prioridade_display }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            {{ tarefa.titulo }}
+        </h5>
+        <p class="card-body">
+            {{ tarefa.descricao }}
+            <br>
+            {{ tarefa.data_expiracao }}
+        </p>
+        <hr>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">
+                Remover
+            </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock conteudo  %}
